@@ -1,11 +1,13 @@
 import React from 'react';
 
-import { default as ISS } from '../Components/ISS/ISS.js';
+import './App.css';
+
+import { default as Canvas } from '../Components/Canvas/Canvas.js';
 
 export default function App() {
   return (
-    <div>
-      <ISS />
+    <div className='App'>
+      <Canvas />
     </div>
   )
 }
