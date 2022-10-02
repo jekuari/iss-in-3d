@@ -1,15 +1,16 @@
-import React from 'react';
+/* eslint-disable import/no-named-default */
+import React from 'react'
 
-import './App.css';
+import './App.css'
 
-import { default as Canvas } from '../Components/Canvas/Canvas.js';
+import { default as Canvas } from '../components/Canvas/Canvas'
 
-import { default as NavBar } from '../Components/NavBar/NavBar';
+import { default as NavBar } from '../components/NavBar/NavBar'
 
-import { default as LeftControls } from '../Components/LeftControls/LeftControls';
-import { default as RightControls } from '../Components/RightControls/RightControls';
+import { default as LeftControls } from '../components/LeftControls/LeftControls'
+import { default as RightControls } from '../components/RightControls/RightControls'
 
-export default function App() {
+export default function App () {
   return (
     <div className='App'>
       <Canvas />
