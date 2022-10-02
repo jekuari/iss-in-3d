@@ -6,7 +6,7 @@ import * as satellite from 'satellite.js'
 import { useState } from 'react'
 
 const ApiTle = () => {
-  const [satelliteInfo, setSatelliteInfo] = useState([])
+   let satelliteInfo = [];
   // let newPosition = []
   let tle = []
 
@@ -34,9 +34,8 @@ const ApiTle = () => {
       swal.fire('Error', 'An internal server error has occurred, please contact the site admin', 'error')
     }
   })
-  setSatelliteInfo(position)
 
-  return satelliteInfo
+  return position;
 }
 
 export default ApiTle
