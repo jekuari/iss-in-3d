@@ -1,59 +1,97 @@
-/* eslint-disable import/no-named-default */
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 
-import './RightControls.scss'
+   const [styleOne, setStyleOne] = useState({});
+   const [styleTwo, setStyleTwo] = useState({});
+   const [styleThree, setStyleThree] = useState({});
+   const [styleFour, setStyleFour] = useState({});
 
-import { default as Square } from '../Square/Square'
+
+export default function RightControls(props) {
+
+   useEffect(() => {
+      handleOnResize();
+      window.addEventListener('keydown', handleKeyDown)
+      window.addEventListener('keyup', handleKeyUp)
+
+      window.addEventListener('onresize', handleOnResize)
+
+      return () => {
+         window.removeEventListener('keydown', handleKeyDown)
+         window.removeEventListener('keyup', handleKeyUp)
+         window.removeEventListener('onresize', handleOnResize)
+      };
+
+   }, []);
+
+   const handleOnResize = () => {
+      const width = window.innerWidth;
+      if (width < 800) {
+         setStyleOne({display: 'none'});
+         setStyleTwo({display: 'none'});
+         setStyleThree({display: 'none'});
+         setStyleFour({display: 'none'});
+      } else {
+         setStyleOne({});
+         setStyleTwo({});
+         setStyleThree({});
+         setStyleFour({});
+      }
+   }
+
+   const handleKeyDown = (e) => {
+      const key = e.key;
+
+      if (key === 'ArrowUp') {
+         setStyleOne({ backgroundColor: 'white', color: 'black' });
+      }
+      if (key === 'ArrowLeft') {
+         setStyleTwo({ backgroundColor: 'white', color: 'black' });
+      }
+
+      if (key === 'ArrowDown') {
+         setStyleThree({ backgroundColor: 'white', color: 'black' });
+      }
+
+      if (key === 'ArrowRight') {
+         setStyleFour({ backgroundColor: 'white', color: 'black' });
+      }
+
+   }
+
+   const handleKeyUp = (e) => {
+      setStyleOne({ backgroundColor: 'transparent' });
+      setStyleTwo({ backgroundColor: 'transparent' });
+      setStyleThree({ backgroundColor: 'transparent' });
+      setStyleFour({ backgroundColor: 'transparent' });
+   }
+
+   const [styleOne, setStyleOne] = useState({});
+   const [styleTwo, setStyleTwo] = useState({});
+   const [styleThree, setStyleThree] = useState({});
+   const [styleFour, setStyleFour] = useState({});
 
 
-export default function RightControls () {
-  return (
-    <div className='--right-controls'>
-      <Square empty />
-      <Square>
-        <span class='material-symbols-outlined' style={{ transform: 'rotateZ(180deg)' }}>
-          arrow_drop_down
-        </span>
-      </Square>
-      <Square empty />
-      <Square>
-        <span class='material-symbols-outlined' style={{ transform: 'rotateZ(90deg)' }}>
-          arrow_drop_down
-        </span>
-      </Square>
-      <Square>
-        <span class='material-symbols-outlined' style={{ transform: 'rotateZ(0deg)' }}>
-          arrow_drop_down
-        </span>
-      </Square>
-      <Square>
-        <span class='material-symbols-outlined' style={{ transform: 'rotateZ(270deg)' }}>
-          arrow_drop_down
-        </span>
-      </Square>
-      </div>)}
-export default function RightControls() {
    return (
       <div className='--right-controls'>
-         <Square empty />
-         <Square>
-            <span className="material-symbols-outlined" style={{ transform: 'rotateZ(180deg)' }}>
+         <Square style={{border: 'none'}} />
+         <Square key={'ArrowUp'} style={styleOne} >
+            <span className="material-symbols-outlined" >
                arrow_drop_down
             </span>
          </Square>
-         <Square empty />
-         <Square>
-            <span className="material-symbols-outlined" style={{ transform: 'rotateZ(90deg)' }}>
+         <Square style={{border: 'none'}} />
+         <Square key={'ArrowLeft'} style={styleTwo} >
+            <span className="material-symbols-outlined" >
                arrow_drop_down
             </span>
          </Square>
-         <Square>
-            <span className="material-symbols-outlined" style={{ transform: 'rotateZ(0deg)' }}>
+         <Square key={'ArrowDown'} style={styleThree} >
+            <span className="material-symbols-outlined" >
                arrow_drop_down
             </span>
          </Square>
-         <Square>
-            <span className="material-symbols-outlined" style={{ transform: 'rotateZ(270deg)' }}>
+         <Square key={'ArrowRight'} style={styleFour}>
+            <span className="material-symbols-outlined" >
                arrow_drop_down
             </span>
          </Square>
