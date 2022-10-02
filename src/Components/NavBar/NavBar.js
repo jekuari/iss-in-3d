@@ -20,9 +20,10 @@ export default function HUD() {
 
    return (
       <div className='--navbar'>
-         <NavLink to='/' className={inHome ? 'selected' : ''} >Home</NavLink>
-         <NavLink to='gallery' className={({isActive}) => isActive ? 'selected' : ''}>Gallery</NavLink>
-         <NavLink to='github' className={({isActive}) => isActive ? 'selected' : ''}>github</NavLink>
+         <NavLink to='/' className={inHome ? 'selected' : ''} >HOME</NavLink>
+         <NavLink to='gallery' className={({isActive}) => isActive ? 'selected' : ''}>GALLERY</NavLink>
+         <NavLink to='more' className={({isActive}) => isActive ? 'selected' : ''}>MORE</NavLink>
+         <NavLink to='github' className={({isActive}) => isActive ? 'selected' : ''}>GITHUB</NavLink>
       </div>
    )
 }

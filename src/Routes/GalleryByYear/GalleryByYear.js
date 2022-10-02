@@ -38,7 +38,7 @@ export default function GalleryByYear() {
          for (let i = 0; i < images.length; i++) {
             const image = images[i]
             if (image.links && image.links[0].href) {
-               const element = <img src={image.links[0].href} onClick={switchExpanded} data-image={image.links[0].href} data-index={i} />
+               const element = <img src={image.links[0].href} onClick={switchExpanded} data-image={image.links[0].href} data-index={i} data-text={image.data[0].description}/>
                setElements(elements => [...elements, element])
             }
          }
@@ -48,6 +48,7 @@ export default function GalleryByYear() {
    const [expandedOpen, setExpandedOpen] = useState(false);
 
    const [expandedImage, setExpandedImage] = useState('');
+   const [expandedDescription, setExpandedDescription] = useState('');
 
    const [expandedIndex, setExpandedIndex] = useState(0);
 
@@ -55,6 +56,7 @@ export default function GalleryByYear() {
       Event.preventDefault();
       Event.target.getAttribute('data-image') ? setExpandedImage(Event.target.getAttribute('data-image')) : setExpandedImage(null);
       Event.target.getAttribute('data-index') ? setExpandedIndex(Event.target.getAttribute('data-index')) : setExpandedIndex(null);
+      Event.target.getAttribute('data-text') ? setExpandedDescription(Event.target.getAttribute('data-text')) : setExpandedDescription(null);
       setExpandedOpen((prev) => !prev);
    }
 
@@ -63,6 +65,7 @@ export default function GalleryByYear() {
       if (parseInt(expandedIndex) > 0) {
          setExpandedIndex(parseInt(expandedIndex) - 1);
          setExpandedImage(images[parseInt(expandedIndex) - 1].links[0].href);
+         setExpandedDescription(images[parseInt(expandedIndex) - 1].data[0].description);
       }
    }
 
@@ -71,6 +74,7 @@ export default function GalleryByYear() {
       if (parseInt(expandedIndex) < images.length - 1) {
          setExpandedIndex(parseInt(expandedIndex) + 1);
          setExpandedImage(images[parseInt(expandedIndex) + 1].links[0].href);
+         setExpandedDescription(images[parseInt(expandedIndex) + 1].data[0].description);
       }
    }
 
@@ -95,6 +99,7 @@ export default function GalleryByYear() {
          {elements}
          <div className='expanded-image' data-is-active={expandedOpen}>
             <img src={expandedImage} alt="" />
+            <p>{expandedDescription}</p>
             <div className='chevrons left' onClick={moveLeft}>
                <span className="material-symbols-outlined" onClick={moveLeft}>
                   chevron_left

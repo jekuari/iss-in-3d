@@ -8,9 +8,6 @@ export default function ISS({ ...props }) {
    const { scene } = useGLTF('/resources/iss.glb')
    useFrame((state, delta) => {
 
-      // The offset is between 0 and 1, you can apply it to your models any way you lik
-
-
       state.camera.lookAt(0, 0, 0)
    })
    return <primitive object={scene} {...props} />
