@@ -83,8 +83,8 @@ export default function App (props) {
   const latitud = getLatLngObj(tle).lat
   const longitud = getLatLngObj(tle).lng
 
-  console.log('latitud:', latitud)
-  console.log('longitud:', longitud)
+  console.log('latitud y:', latitud)
+  console.log('longitud x:', longitud)
 
   const date = new Date()
 
@@ -92,16 +92,26 @@ export default function App (props) {
 
   console.log('satInfo:', satInfo)
 
+  const latY = satInfo.lat
+  const lngX = satInfo.lng
+
+  const newPosition = {
+    x: lngX,
+    y: latY,
+    vel: satInfo.velocity
+  }
+
   return (
     <Canvas style={{ background: '#000000' }}>
-      <PerspectiveCamera makeDefault position={[-15, 0, 0]} />
+      <PerspectiveCamera makeDefault position={[-300, 0, 0]} />
 
       <ambientLight intensity={1} />
       <spotLight angle={0.14} color='#ffffff' position={[25, 50, -20]} shadow-mapSize={[2048, 2048]} shadow-bias={1} castShadow />
       <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
 
-      <Iss scale={0.1} position={[0, 0, 0]} />
-      <Earth scale={0.02} position={[100, 0, 0]} />
+      <Earth scale={0.1} position={[0, 0, 0]}>
+        <Iss scale={1} position={[1000, 0, 0]} newPosition={newPosition} />
+      </Earth>
 
       <FlyControls autoForward={false} dragToLook movementSpeed={10} rollSpeed={1} />
       <OrbitControls />
