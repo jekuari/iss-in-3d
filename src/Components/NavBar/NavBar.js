@@ -1,13 +1,28 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+
+import { NavLink, useLocation } from 'react-router-dom';
 
 import './NavBar.scss';
 
 export default function HUD() {
+
+   const location = useLocation();
+
+   const [inHome, setInHome] = useState(false);
+
+   useEffect(() => {
+      if (location.pathname === '/') {
+         setInHome(true);
+      } else {
+         setInHome(false);
+      }
+   }, [location]);
+
    return (
       <div className='--navbar'>
-         <a href="">HOME</a>
-         <a href="">DATA</a>
-         <a href="">MORE</a>
+         <NavLink to='/' className={inHome ? 'selected' : ''} >Home</NavLink>
+         <NavLink to='gallery' className={({isActive}) => isActive ? 'selected' : ''}>Gallery</NavLink>
+         <NavLink to='github' className={({isActive}) => isActive ? 'selected' : ''}>github</NavLink>
       </div>
    )
 }
