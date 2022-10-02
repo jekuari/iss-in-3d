@@ -8,23 +8,45 @@ import { ScrollControls, Sky, useScroll, useGLTF, Stars, PerspectiveCamera, Orbi
 import { getLatLngObj, getSatelliteInfo } from 'tle.js'
 import * as satellite from 'satellite.js'
 
+<<<<<<< HEAD
 import { default as Iss } from '../ISS/ISS.js'
 import { default as Earth } from '../Earth/Earth.js'
 
 export default function App (props) {
   const ref = React.useRef()
+=======
+// import { default as ApiTime } from '../../services/ApiTime';
+
+import { default as ISS } from '../ISS/ISS.js';
+import { default as Earth } from '../Earth/Earth.js';
+
+var parseString = require('xml2js').parseString;
+
+export default function App(props) {
+>>>>>>> 044b7f8d8ecd030edab2df91f00422ca20880cb5
 
   const [satelliteInfo, setSatelliteInfo] = useState([])
   useEffect(() => {
     const url = 'https://tle.ivanstanojevic.me/api/tle/25544'
     const myHeaders = new Headers()
 
+<<<<<<< HEAD
     const requestOptions = {
       method: 'GET',
       headers: myHeaders,
       redirect: 'follow',
       mode: 'cors'
     }
+=======
+   const [satelliteInfo, setSatelliteInfo] = useState([]);
+
+   const [dates, setDates] = useState([]);
+
+
+   useEffect(() => {
+      const url = 'https://tle.ivanstanojevic.me/api/tle/25544'
+      var myHeaders = new Headers();
+>>>>>>> 044b7f8d8ecd030edab2df91f00422ca20880cb5
 
     fetch(url, requestOptions)
       .then(response => response.json())
@@ -34,10 +56,40 @@ export default function App (props) {
       .catch(error => { console.log(error) })
   }, [])
 
+<<<<<<< HEAD
   const line1 = satelliteInfo.line1
   const line2 = satelliteInfo.line2
   const lines = (line1 + line2)
   console.log(lines)
+=======
+      fetch(url, requestOptions)
+         .then(response => response.json())
+         .then(result => {
+            setSatelliteInfo(result)
+         })
+         .catch(error => { console.log(error) });
+
+      const url2 = 'https://sscweb.gsfc.nasa.gov/WS/sscr/2/observatories';
+
+      var requestOptions2 = {
+         method: 'GET',
+         headers: myHeaders,
+         redirect: 'follow',
+         mode: 'cors'
+      };
+
+      fetch(url2, requestOptions2)
+         .then(response => response.text())
+         .then(result => {
+            const xml = result;
+            parseString(xml, function (err, result) {
+               console.log(result, 'result')
+               // FECHAS PARA URI CON AMOR <3
+            });
+
+         });
+   }, [])
+>>>>>>> 044b7f8d8ecd030edab2df91f00422ca20880cb5
 
   const tle = `
   ${line1}
