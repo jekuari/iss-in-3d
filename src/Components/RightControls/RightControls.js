@@ -9,23 +9,23 @@ export default function RightControls() {
       <div className='--right-controls'>
          <Square empty />
          <Square>
-            <span class="material-symbols-outlined" style={{ transform: 'rotateZ(180deg)' }}>
+            <span className="material-symbols-outlined" style={{ transform: 'rotateZ(180deg)' }}>
                arrow_drop_down
             </span>
          </Square>
          <Square empty />
          <Square>
-            <span class="material-symbols-outlined" style={{ transform: 'rotateZ(90deg)' }}>
+            <span className="material-symbols-outlined" style={{ transform: 'rotateZ(90deg)' }}>
                arrow_drop_down
             </span>
          </Square>
          <Square>
-            <span class="material-symbols-outlined" style={{ transform: 'rotateZ(0deg)' }}>
+            <span className="material-symbols-outlined" style={{ transform: 'rotateZ(0deg)' }}>
                arrow_drop_down
             </span>
          </Square>
          <Square>
-            <span class="material-symbols-outlined" style={{ transform: 'rotateZ(270deg)' }}>
+            <span className="material-symbols-outlined" style={{ transform: 'rotateZ(270deg)' }}>
                arrow_drop_down
             </span>
          </Square>

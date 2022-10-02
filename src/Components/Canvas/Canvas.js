@@ -3,12 +3,13 @@ import React, { Suspense, useEffect, useState, useLayoutEffect, } from 'react'
 import { Canvas, useFrame, useThree, extend } from '@react-three/fiber'
 import { OrbitControls as OrbitControlsImpl } from 'three-stdlib'
 import { ScrollControls, Sky, useScroll, useGLTF, Stars, PerspectiveCamera, OrbitControls, FlyControls, FirstPersonControls } from '@react-three/drei'
+
 // import { default as ApiTime } from '../../services/ApiTime';
 
 import { default as ISS } from '../ISS/ISS.js';
 import { default as Earth } from '../Earth/Earth.js';
 
-
+var parseString = require('xml2js').parseString;
 
 export default function App(props) {
 
@@ -49,13 +50,12 @@ export default function App(props) {
       fetch(url2, requestOptions2)
          .then(response => response.text())
          .then(result => {
-            console.log(result, 'result')
-            let fechas = []
-            for (let i = 0; i < result.Observatory[1].length; i++) {
-               console.log(result.Observatory[1][i].StartTime[1].substring(0, 10), 'datos.Observatory[1][i].EndTime[1]')
-               fechas.push({ StartTime: result.Observatory[1][i].StartTime[1].substring(0, 10), EndTime: result.Observatory[1][i].EndTime[1].substring(0, 10) })
-            }
-            setDates(fechas)
+            const xml = result;
+            parseString(xml, function (err, result) {
+               console.log(result, 'result')
+               // FECHAS PARA URI CON AMOR <3
+            });
+
          });
    }, [])
 
