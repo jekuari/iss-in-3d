@@ -1,14 +1,17 @@
 .--navbar {
-   position: absolute;
+   position: fixed;
    height: 5rem;
-
+   background-color: black;
+   padding-left: 2rem;
+   padding-right: 2rem;
    z-index: 100;
+   width: 100%;
    top: 0;
    left: 50%;
    transform: translateX(-50%);
    display: flex;
    align-items: center;
-   justify-content: cente;
+   justify-content: center;
    gap: 4rem;
 
    & > a {
@@ -17,9 +20,14 @@
       font-weight: 600;
       text-decoration: none;
       transition: all 0.3s ease-in-out;
-
+      user-select: none;
       &:hover {
          color: #f00;
       }
+   }
+
+   & .selected {
+
+      color: #f00;
    }
 }
