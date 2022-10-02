@@ -5,7 +5,7 @@ import './RightControls.scss'
 
 import { default as Square } from '../Square/Square'
 
-<<<<<<< HEAD
+
 export default function RightControls () {
   return (
     <div className='--right-controls'>
@@ -31,7 +31,7 @@ export default function RightControls () {
           arrow_drop_down
         </span>
       </Square>
-=======
+      </div>)}
 export default function RightControls() {
    return (
       <div className='--right-controls'>
@@ -57,7 +57,6 @@ export default function RightControls() {
                arrow_drop_down
             </span>
          </Square>
->>>>>>> 044b7f8d8ecd030edab2df91f00422ca20880cb5
 
     </div>
   )

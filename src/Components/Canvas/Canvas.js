@@ -13,7 +13,6 @@ import { default as Iss } from '../ISS/ISS.js'
 import { default as Earth } from '../Earth/Earth.js'
 
 export default function App (props) {
-=======
   const ref = React.useRef()
 =======
 // import { default as ApiTime } from '../../services/ApiTime';
