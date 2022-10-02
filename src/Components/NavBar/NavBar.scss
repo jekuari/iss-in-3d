@@ -1,0 +1,25 @@
+.--navbar {
+   position: absolute;
+   height: 5rem;
+
+   z-index: 100;
+   top: 0;
+   left: 50%;
+   transform: translateX(-50%);
+   display: flex;
+   align-items: center;
+   justify-content: cente;
+   gap: 4rem;
+
+   & > a {
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+         color: #f00;
+      }
+   }
+}
