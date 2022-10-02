@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import { NavLink, useLocation } from 'react-router-dom';
 
-import './NavBar.scss';
+import './NavBar.scss'
 
 export default function HUD() {
 

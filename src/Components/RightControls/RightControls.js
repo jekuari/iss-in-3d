@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
-import './RightControls.scss';
+import './RightControls.scss'
 
-import { default as Square } from '../Square/Square';
+import { default as Square } from '../Square/Square'
 
 export default function RightControls(props) {
 

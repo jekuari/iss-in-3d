@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react';
+/* eslint-disable import/no-named-default */
+/* eslint-disable no-unused-vars */
+import React, { useState, useEffect } from 'react'
 
-import './LeftControls.scss';
-import { default as Square } from '../Square/Square';
+import './LeftControls.scss'
+import { default as Square } from '../Square/Square'
 
 export default function LeftControls() {
 
