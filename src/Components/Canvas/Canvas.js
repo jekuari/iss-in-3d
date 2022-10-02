@@ -14,11 +14,10 @@ import * as satellite from 'satellite.js'
 
 import { default as Iss } from '../ISS/ISS.js'
 import { default as Earth } from '../Earth/Earth.js'
-
-const parseString = require('xml2js').parseString
+import Dates from '../Dates/Dates.js'
+import SelectorDates from '../Dates/SelectorDates.jsx'
 
 export default function App (props) {
-  const [dates, setDates] = useState([])
   // useEffect(() => {
   // const url = 'https://tle.ivanstanojevic.me/api/tle/25544'
   // const myHeaders = new Headers()
@@ -48,49 +47,29 @@ export default function App (props) {
       .catch(error => { console.log(error) })
   }, [])
 
-  //   const url2 = 'https://sscweb.gsfc.nasa.gov/WS/sscr/2/observatories'
-  //   const requestOptions2 = {
-  //     method: 'GET',
-  //     headers: myHeaders,
-  //     redirect: 'follow',
-  //     mode: 'cors'
-  //   }
-
-  //   fetch(url2, requestOptions2)
-  //     .then(response => response.text())
-  //     .then(result => {
-  //       const xml = result
-  //       parseString(xml, function (err, result) {
-  //         console.log(result, 'result')
-  //         // FECHAS PARA URI CON AMOR <3
-  //         setDates(result)
-  //       })
-  //     }, [])
-  // }, [])
-
   if (satelliteInfo.length === 0) {
     console.log('Cargando...')
   }
-  console.log('info:', satelliteInfo)
+  // console.log('info:', satelliteInfo)
   const line1 = satelliteInfo.line1
   const line2 = satelliteInfo.line2
   const tle = `
       ${line1}
       ${line2}`
   // console.log('de otros:', tle)
-  console.log(getLatLngObj(tle))
+  // console.log(getLatLngObj(tle))
 
   const latitud = getLatLngObj(tle).lat
   const longitud = getLatLngObj(tle).lng
 
-  console.log('latitud y:', latitud)
-  console.log('longitud x:', longitud)
+  // console.log('latitud y:', latitud)
+  // console.log('longitud x:', longitud)
 
   const date = new Date()
 
   const satInfo = getSatelliteInfo(tle, date, latitud, longitud, 0)
 
-  console.log('satInfo:', satInfo)
+  // console.log('satInfo:', satInfo)
 
   const latY = satInfo.lat
   const lngX = satInfo.lng
@@ -110,7 +89,7 @@ export default function App (props) {
       <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
 
       <Earth scale={0.1} position={[0, 0, 0]}>
-        <Iss scale={1} position={[1000, 0, 0]} newPosition={newPosition} />
+        <Iss scale={1} position={[-1000, 0, 0]} newPosition={newPosition} />
       </Earth>
 
       <FlyControls autoForward={false} dragToLook movementSpeed={10} rollSpeed={1} />
