@@ -3,13 +3,13 @@ import React from 'react'
 
 import './App.css'
 
-import { default as Canvas } from '../components/Canvas/Canvas'
+import { default as Canvas } from '../Components/Canvas/Canvas'
 
-import { default as NavBar } from '../components/NavBar/NavBar'
+import { default as NavBar } from '../Components/NavBar/NavBar'
 
-import { default as LeftControls } from '../components/LeftControls/LeftControls'
-import { default as RightControls } from '../components/RightControls/RightControls'
-import SelectorDates from '../components/Dates/SelectorDates'
+import { default as LeftControls } from '../Components/LeftControls/LeftControls'
+import { default as RightControls } from '../Components/RightControls/RightControls'
+import SelectorDates from '../Components/Dates/SelectorDates'
 
 export default function App () {
   return (

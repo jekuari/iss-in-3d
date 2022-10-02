@@ -1,4 +1,4 @@
-/* eslint-disable n/handle-callback-err */
+
 /* eslint-disable no-undef */
 /* eslint-disable import/no-named-default */
 /* eslint-disable no-unused-vars */

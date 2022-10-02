@@ -1,6 +1,4 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-undef */
-/* eslint-disable n/handle-callback-err */
+
 import { useEffect, useState } from 'react'
 
 const parseString = require('xml2js').parseString

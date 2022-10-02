@@ -73,13 +73,13 @@ export default function RightControls(props) {
       <div className='--right-controls'>
          <Square style={{border: 'none'}} />
          <Square key={'ArrowUp'} style={styleOne} >
-            <span className="material-symbols-outlined" >
+            <span className="material-symbols-outlined" style={{transform: 'rotate(180deg)'}} >
                arrow_drop_down
             </span>
          </Square>
          <Square style={{border: 'none'}} />
          <Square key={'ArrowLeft'} style={styleTwo} >
-            <span className="material-symbols-outlined" >
+            <span className="material-symbols-outlined" style={{transform: 'rotate(90deg)'}} >
                arrow_drop_down
             </span>
          </Square>
@@ -89,7 +89,7 @@ export default function RightControls(props) {
             </span>
          </Square>
          <Square key={'ArrowRight'} style={styleFour}>
-            <span className="material-symbols-outlined" >
+            <span className="material-symbols-outlined" style={{transform: 'rotate(270deg)'}} >
                arrow_drop_down
             </span>
          </Square>
