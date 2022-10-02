@@ -12,7 +12,7 @@ export default function ISS ({ ...props }) {
 
   useFrame((state, delta) => {
     // The offset is between 0 and 1, you can apply it to your models any way you lik
-    scene.rotation.z += 0.007
+    scene.rotation.z += 0.01
     // scene.rotation.z += vel / 1000
     state.camera.lookAt(0, 0, 0)
     // console.log(props.newPosition.x)

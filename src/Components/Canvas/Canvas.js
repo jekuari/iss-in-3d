@@ -89,7 +89,7 @@ export default function App (props) {
       <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
 
       <Earth scale={0.1} position={[0, 0, 0]}>
-        <Iss scale={1} position={[-1000, 0, 0]} newPosition={newPosition} />
+        <Iss scale={1.5} position={[-1000, 0, 0]} newPosition={newPosition} />
       </Earth>
 
       <FlyControls autoForward={false} dragToLook movementSpeed={10} rollSpeed={1} />
