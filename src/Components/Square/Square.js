@@ -1,13 +1,11 @@
-import React, { useState, useEffect } from 'react';
+/* eslint-disable no-unused-vars */
+import React, { useState, useEffect } from 'react'
 
 import './Square.scss'
 
-export default function Square(props) {
-   
-
-
+export default function Square (props) {
   return (
-    <div className='--square' style={props.style}  >
+    <div className='--square' style={props.style}>
       {props.children}
     </div>
   )

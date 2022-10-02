@@ -9,23 +9,15 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "buffer": "^6.0.3",
-<<<<<<< HEAD
-    "jquery": "^3.6.1",
-=======
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
->>>>>>> 6c91a21c255dba9f7d0d0641e949bdfbe2bd8e4e
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.1",
     "react-scripts": "5.0.1",
     "react-select": "^5.4.0",
     "sass": "^1.55.0",
-<<<<<<< HEAD
-    "satellite.js": "^4.1.4",
-=======
     "sort-by": "^1.2.0",
->>>>>>> 6c91a21c255dba9f7d0d0641e949bdfbe2bd8e4e
     "stream": "^0.0.2",
     "three": "^0.145.0",
     "timers": "^0.1.1",
