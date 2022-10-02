@@ -8,8 +8,8 @@ import { Object3D } from 'three'
 export default function Earth ({ ...props }) {
   const { scene } = useGLTF('/resources/earth.glb')
   useFrame((state, delta) => {
-    scene.rotation.y += 0.0005
     // scene.rotation.x += 0.0005
+    scene.rotation.y += 0.0005
     state.camera.lookAt(0, 0, 0)
   })
   return <primitive object={scene} {...props} />

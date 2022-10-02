@@ -1,4 +1,3 @@
-/* eslint-disable n/handle-callback-err */
 /* eslint-disable no-undef */
 /* eslint-disable import/no-named-default */
 /* eslint-disable no-unused-vars */
@@ -10,36 +9,25 @@ import { ScrollControls, Sky, useScroll, useGLTF, Stars, PerspectiveCamera, Orbi
 import { getLatLngObj, getSatelliteInfo } from 'tle.js'
 import * as satellite from 'satellite.js'
 
-// import { default as ApiTime } from '../../services/ApiTime';
-
 import { default as Iss } from '../ISS/ISS.js'
 import { default as Earth } from '../Earth/Earth.js'
-import Dates from '../Dates/Dates.js'
-import SelectorDates from '../Dates/SelectorDates.jsx'
 
 export default function App (props) {
-  // useEffect(() => {
-  // const url = 'https://tle.ivanstanojevic.me/api/tle/25544'
-  // const myHeaders = new Headers()
-  // const requestOptions2 = {
-  //   method: 'GET',
-  //   headers: myHeaders,
-  //   redirect: 'follow',
-  //   mode: 'cors'
-  // }
+  const ref = React.useRef()
 
   const [satelliteInfo, setSatelliteInfo] = useState([])
-
   useEffect(() => {
     const url = 'https://tle.ivanstanojevic.me/api/tle/25544'
     const myHeaders = new Headers()
-    const requestOptions1 = {
+
+    const requestOptions = {
       method: 'GET',
       headers: myHeaders,
       redirect: 'follow',
       mode: 'cors'
     }
-    fetch(url, requestOptions1)
+
+    fetch(url, requestOptions)
       .then(response => response.json())
       .then(result => {
         setSatelliteInfo(result)
@@ -50,18 +38,22 @@ export default function App (props) {
   if (satelliteInfo.length === 0) {
     console.log('Cargando...')
   }
+  console.log('info:', satelliteInfo)
   // console.log('info:', satelliteInfo)
   const line1 = satelliteInfo.line1
   const line2 = satelliteInfo.line2
   const tle = `
-      ${line1}
-      ${line2}`
+     ${line1}
+     ${line2}`
   // console.log('de otros:', tle)
+  console.log(getLatLngObj(tle))
   // console.log(getLatLngObj(tle))
 
   const latitud = getLatLngObj(tle).lat
   const longitud = getLatLngObj(tle).lng
 
+  console.log('latitud y:', latitud)
+  console.log('longitud x:', longitud)
   // console.log('latitud y:', latitud)
   // console.log('longitud x:', longitud)
 
@@ -69,6 +61,7 @@ export default function App (props) {
 
   const satInfo = getSatelliteInfo(tle, date, latitud, longitud, 0)
 
+  console.log('satInfo:', satInfo)
   // console.log('satInfo:', satInfo)
 
   const latY = satInfo.lat
@@ -89,7 +82,7 @@ export default function App (props) {
       <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
 
       <Earth scale={0.1} position={[0, 0, 0]}>
-        <Iss scale={1.5} position={[-1000, 0, 0]} newPosition={newPosition} />
+        <Iss scale={1} position={[-1000, 0, 0]} newPosition={newPosition} />
       </Earth>
 
       <FlyControls autoForward={false} dragToLook movementSpeed={10} rollSpeed={1} />
