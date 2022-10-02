@@ -1,18 +1,28 @@
 /* eslint-disable no-unused-vars */
 import { useEffect, useRef, useState } from 'react'
-import * as THREE from 'three'
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
-import { ApiAjax } from '../services/apiAjax'
-import ApiTle from '../services/apiTle'
-import swal from 'sweetalert2'
+
 
 const Earth = () => {
   // const [position, setPosition] = useState()
+  const [satelliteInfo, setSatelliteInfo] = useState([])
+  useEffect(() => {
+   const url = 'https://tle.ivanstanojevic.me/api/tle/25544'
+   var myHeaders = new Headers();
 
-  // useEffect(() => {
-  //   const datos = ApiTle()
-  //   console.log(datos)
-  // }, [])
+   var requestOptions = {
+      method: 'GET',
+      headers: myHeaders,
+      redirect: 'follow',
+      mode: 'cors'
+   };
+
+   fetch(url, requestOptions)
+      .then(response => response.json())
+      .then(result => {
+         setSatelliteInfo(result)
+      })
+      .catch(error => { console.log(error) });
+  }, [])
 
   return (
     <div>a</div>
