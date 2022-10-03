@@ -86,13 +86,13 @@ export default function App (props) {
 
       <ambientLight intensity={1} />
       <spotLight angle={0.14} color='#ffffff' position={[25, 50, -20]} shadow-mapSize={[2048, 2048]} shadow-bias={1} castShadow />
-      <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
+      <Stars radius={400} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
 
       <Earth scale={0.1} position={[0, 0, 0]}>
         <Iss scale={1.5} position={[-1000, 0, 0]} newPosition={newPosition} />
       </Earth>
 
-      <FlyControls autoForward={false} dragToLook movementSpeed={10} rollSpeed={1} />
+      {/* <FlyControls autoForward={false} dragToLook movementSpeed={10} rollSpeed={1} /> */}
       <OrbitControls />
     </Canvas>
   )

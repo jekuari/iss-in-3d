@@ -16,9 +16,9 @@ export default function App () {
     <div className='App'>
       <Canvas />
 
-      <LeftControls />
+      {/* <LeftControls /> */}
       <SelectorDates />
-      <RightControls />
+      {/* <RightControls /> */}
     </div>
   )
 }
