@@ -10,7 +10,7 @@ const ApiTime = () => {
     success: function (datos) {
       // eslint-disable-next-line no-unused-vars
       const obj = JSON.stringify(datos)
-      
+
     //   console.log(fechas, 'fechas')
     //   const date = new Date()
     //   console.log(date, 'date')

@@ -23,29 +23,30 @@ const Dates = () => {
       .then(result => {
         const xml = result
         parseString(xml, function (err, result) {
-          // console.log(result.ObservatoryResponse.Observatory, 'result')
           const miniArray = result.ObservatoryResponse.Observatory
-          // setDates(result)
-          // console.log(miniArray, 'miniArray')
-          let elements = []
-          console.log(miniArray[0].Name[0])
-          for (let i = 0; i < miniArray[i].length; i++) {
-            elements = miniArray[i][1].StartTime[1]
-            console.log('fechas', elements)
-            console.log('hola')
-          }
-        })
 
-        // const date = new Date()
-        // console.log(date)
-        // setDates(result)
-        // console.log(result)
+          const elementsStart = []
+          const elementsEnd = []
+
+          for (let i = 0; i < miniArray.length; i++) {
+            elementsStart.push(miniArray[i].StartTime)
+            elementsEnd.push(miniArray[i].EndTime)
+          }
+          console.log('fechas iniciales: ', elementsStart)
+          console.log('fechas finales: ', elementsEnd)
+          console.log(elementsStart.length)
+          setDates(elementsStart)
+        })
       }, [])
   }, [])
 
-  // console.log('dates:', JSON.stringify(dates))
-
-  // const fecha = JSON.stringify(res)
+  let newDate = []
+  newDate = new Date(dates[0])
+  for (let i = 0; i < dates.length; i++) {
+    newDate += new Date(dates[i])
+  }
+  // Las fechas ya estan en el formato correcto, solo falta pasar cada una dentro del select
+  console.log('Formato de fecha correcto: ', newDate)
 }
 
 export default Dates

@@ -1,5 +1,6 @@
 import './SelectorDates.css'
 import Select from 'react-select'
+import Dates from './Dates'
 
 const SelectorDates = () => {
   const options = [
@@ -11,6 +12,7 @@ const SelectorDates = () => {
   return (
     <div className='selector-dates'>
       <Select options={options} menuPlacement='top' />
+      <Dates />
     </div>
   )
 }

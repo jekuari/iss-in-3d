@@ -58,7 +58,7 @@ export default function App (props) {
   // console.log('longitud x:', longitud)
 
   const date = new Date()
-
+  console.log(date)
   const satInfo = getSatelliteInfo(tle, date, latitud, longitud, 0)
 
   console.log('satInfo:', satInfo)
