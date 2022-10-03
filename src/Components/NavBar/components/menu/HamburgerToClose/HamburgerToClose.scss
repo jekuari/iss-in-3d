@@ -1,0 +1,77 @@
+html {
+   --color-primary: #000000;
+   --color-muted: #3e3e3e;
+   --color-secondary: #f89321;
+   --color-tertiary: #028fd4;
+   --color-quaternary: #FFC23C;
+   --color-success: #00FF00;
+   --color-error: #FF0000;
+   --color-warning: #FFA500;
+   --color-selection: #5712d7;
+   --background-primary: #f7f7f7;
+   --background-muted: #dbdbdb;
+   --background-secondary: #f89321;
+   --background-tertiary: #028fd4;
+   --background-quaternary: #FFC23C;
+   --background-success: #00FF00;
+   --background-error: #FF0000;
+   --background-warning: #FFA500;
+   --background-selection: #5712d7;
+}
+
+$color-primary: var(--color-primary);
+$color-secondary: var(--color-secondary);
+$color-tertiary: var(--color-tertiary);
+$color-quaternary: var(--color-quaternary);
+$color-success: var(--color-success);
+$color-error: var(--color-error);
+$color-warning: var(--color-warning);
+
+$color-selection: var(--color-selection);
+
+$background-primary: var(--background-primary);
+
+$color-list: (
+   primary: $color-primary,
+   secondary: $color-secondary,
+   tertiary: $color-tertiary,
+   quaternary: $color-quaternary,
+   success: $color-success,
+   error: $color-error,
+   warning: $color-warning,
+   selection: $color-selection,
+   background: $background-primary,
+);
+
+@each $color, $value in $color-list {
+   .jkw-hamburguer-to-close-#{$color} {
+      .jkw-hamburguer-to-close-line {
+         width: 30px;
+         height: 3px;
+         background-color: $value;
+         margin: 6px 0;
+         transition: 0.07s ease-in;
+      }
+
+      &[data-is-active="true"] {
+
+         .jkw-hamburguer-to-close-line-first {
+            background-color: $value;
+            transform-origin: center;
+            transform: translate(0px, 9px) rotate(45deg);
+         }
+         
+         .jkw-hamburguer-to-close-line-second {
+            background-color: $value;
+            opacity: 0;
+         }
+
+         .jkw-hamburguer-to-close-line-third {
+            background-color: $value;
+            transform-origin: center;
+            transform: translate(0px, -9px) rotate(-45deg);
+         }
+
+      }
+   }
+}

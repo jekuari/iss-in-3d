@@ -1,0 +1,131 @@
+$color-primary: var(--color-primary);
+$color-secondary: var(--color-secondary);
+$color-tertiary: var(--color-tertiary);
+$color-quaternary: var(--color-quaternary);
+$color-success: var(--color-success);
+$color-error: var(--color-error);
+$color-warning: var(--color-warning);
+
+$color-selection: var(--color-selection);
+
+$background-primary: var(--background-primary);
+
+$color-list: (
+   primary: $color-primary,
+   secondary: $color-secondary,
+   tertiary: $color-tertiary,
+   quaternary: $color-quaternary,
+   success: $color-success,
+   error: $color-error,
+   warning: $color-warning,
+   selection: $color-selection,
+   background: $background-primary,
+);
+
+@each $color, $value in $color-list {
+   .jkw-nav-minimalist-center-#{$color} {
+      z-index: 10;
+      position: fixed;
+      top: 0;
+      height: 5rem;
+      width: 100%;
+      background-color: $color-primary;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+   
+      .jkw-nav-minimalist-center-button {
+         display: none;
+         background-color: inherit;
+         margin: 0;
+         padding: 0;
+         border: none;
+         outline: none;
+         cursor: pointer;
+      }
+   
+      .center {
+         display: flex;
+         justify-content: center;
+         transition: all 0.3s ease-in-out;
+         max-width: 800px;
+         height: inherit;
+         gap: 3rem;
+         align-items: center;
+         height: inherit;
+         width: 100%;
+         .logo {
+            display: flex;
+            align-items: center;
+            gap: var(--gap-medium);
+            height: 100%;
+            width: 100%;
+            img {
+               height: 100%;
+               object-fit: contain;
+            }
+   
+            &:hover {
+               cursor: pointer;
+            }
+         }
+   
+         a {
+            text-transform: uppercase;
+            color: white;
+            text-decoration: none;
+         }
+      }
+   
+      @media only screen and (max-width: 640px) {
+         justify-content: center;
+         width: 100%;
+      
+         .center {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: absolute;
+            top: -100rem;
+            height: max-content; 
+            background-color: #{$value};
+            width: 100%;
+            gap: 0;
+            * {
+               padding: 1rem 0;
+               width: 100%;
+               text-align: center;
+            }
+            .logo {
+               text-align: center;
+               display: flex;
+               justify-content: center;
+               img { 
+                  display: none;
+               }
+               
+            }
+         }
+   
+         &[data-is-active="true"] {
+            .center {
+               top: 100%;
+            }
+         }
+         .jkw-nav-minimalist-center-mobile-nav {
+            width: 100%;
+            height: max-content;
+            z-index: 100;
+            background-color: #{$value};
+            .jkw-nav-minimalist-center-button {
+               display: block;
+               padding: 0px 1.5rem;
+               height: inherit;
+
+            }
+         }
+   
+      }
+      
+   }
+}
